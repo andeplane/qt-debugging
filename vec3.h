@@ -22,6 +22,7 @@ public:
     double length();
     vec3 normalize();
     vec3 normalized();
+    void setToZero();
     double x() const { return components[0]; }
     double y() const { return components[1]; }
     double z() const { return components[2]; }

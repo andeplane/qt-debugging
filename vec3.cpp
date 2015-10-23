@@ -79,6 +79,13 @@ vec3 vec3::normalized()
     return copy.normalize();
 }
 
+void vec3::setToZero()
+{
+    components[0] = 0;
+    components[1] = 0;
+    components[2] = 0;
+}
+
 vec3 &vec3::operator+=(double rhs)
 {
     components[0] += rhs;

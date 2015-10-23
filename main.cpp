@@ -18,9 +18,10 @@ int main()
     for(int i=0; i<1000; i++) {
         double mass = rand()/RAND_MAX*1e-6;
         Planet *object = new Planet(vec3(), vec3(), mass);
+        object->position.randomUniform(-2,2);
+        object->velocity.randomUniform(-2,2);
         planets.push_back(object);
     }
-
 
     EulerCromer integrator;
     QElapsedTimer elapsedTimer;

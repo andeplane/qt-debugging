@@ -1,11 +1,16 @@
 #include "eulercromer.h"
 #include <cmath>
+
 EulerCromer::EulerCromer()
 {
 
 }
 
 void EulerCromer::calculateForces(vector<Planet*> planets) {
+    for(Planet *planet : planets) {
+        planet->force.setToZero();
+    }
+
     double G = 4*M_PI*M_PI;
     for(int i=0; i<planets.size(); i++) {
         Planet *planet1 = planets[i];
@@ -26,8 +31,7 @@ void EulerCromer::calculateForces(vector<Planet*> planets) {
 
 void EulerCromer::tick(vector<Planet*> planets, double dt) {
     calculateForces(planets);
-    for(int i=0; i<planets.size(); i++) {
-        Planet *planet = planets[i];
+    for(Planet *planet : planets) {
         planet->velocity += planet->force*dt;
         planet->position += planet->velocity*dt;
     }
